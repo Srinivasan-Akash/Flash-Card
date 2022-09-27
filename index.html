@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="./app.js"></script>
+</head>
+<body>
+
+    <h1>Flash Cards</h1>
+    <div class="card">
+        <div class="card__content">
+          <div class="card__front">
+            <h3 class="card__title">The Fair</h3>
+            <p class="card__subtitle">Time for some fun</p>
+          </div> 
+          
+          <div class="card__back">
+            <p class="card__body">This would be some longer text that gives a description of the things from the other side I guess</p>
+          </div>
+          
+        </div>
+    </div>
+    <div class="container" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+    <section class="edit">
+      <form class="form">
+        <div class="parent">
+          <input  type="text" class="form__input title" autocomplete="off" placeholder=" " required/>
+          <label  class="form__label">Title</label>  
+        </div>
+
+        <div class="parent">
+          <input  type="text" class="form__input tagline" autocomplete="off" placeholder=" " required/>
+          <label class="form__label">Tagline</label>  
+        </div>
+
+        <div class="parent">
+          <input  type="text" class="form__input desc" autocomplete="off" placeholder=" " required/>
+          <label  class="form__label">Desc</label>  
+        </div>
+
+        <div class="parent">
+          <input  type="url" class="form__input bg-img" autocomplete="off" placeholder=" " required/>
+          <label  class="form__label">Image URL</label>  
+        </div>
+
+        <div class="color-field">
+          <label>Text Color</label>  
+          <input  type="color" class="text-color" required/>
+          <label>BG Color</label>  
+          <input  type="color" class="bg-color" required/>
+        </div>
+
+        <button type="submit" class="submit">Submit</button>
+      </form>
+   </section>
+</body>
+</html>

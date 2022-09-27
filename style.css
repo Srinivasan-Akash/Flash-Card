@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
+
+:root {
+  --level-one: translateZ(3rem);
+  --level-two: translateZ(6rem);
+  --level-three: translateZ(9rem);
+  
+  --fw-normal: 400;
+  --fw-bold: 700;
+  
+  --clr: #b7c9e5;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(21, 21, 23);
+  font-family: 'Oswald', sans-serif;
+}
+
+h1{
+    color: rgba(255, 208, 0, 0.575);
+    font-size: 52px;
+}
+
+.card {
+  width: 400px;
+  height: fit-content;
+}
+
+.card__content {
+  text-align: center;
+  position: relative;
+  padding: 15em 5em;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card__content {
+  transform: rotateY(.5turn);
+}
+
+.card__front,
+.card__back {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5em 3em;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  display: grid;
+  align-content: center;
+}
+
+.card__front {
+  background-color: var(--clr);
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/fair.jpg);
+  background-size: cover;
+  background-blend-mode: overlay;
+  color: #333;
+}
+
+.card__front::before {
+  content: '';
+  position: absolute;
+  --spacer: 1em;
+  top: var(--spacer);
+  bottom: var(--spacer);
+  left: var(--spacer);
+  right: var(--spacer);
+  border: 3px solid currentColor;
+  transform: var(--level-one);
+}
+
+.card__title {
+  font-size: 3.5rem;
+  transform: var(--level-three);
+  order: 2;
+  text-transform: uppercase;
+}
+
+.card__subtitle {
+  transform: var(--level-two);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: .75rem;
+  font-weight: var(--fw-bold);
+  opacity: .7;
+}
+
+.card__body {
+  transform: var(--level-two);
+  font-weight: var(fw-normal);
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+
+
+.card__back {
+  transform: rotateY(.5turn);
+  color: var(--clr);
+  background: #333;
+}
+
+
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    top: 2%;
+    left: 2%;
+    z-index: 99;
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
+
+.edit{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    background-color: none;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transform: translate(-100%, -100%);
+    transition: all 1s ease;
+}
+
+.form{
+    border-bottom: 2px solid #fff;
+    box-shadow: 8px 0px 5px 3px #18FFFF;
+    padding: 10% 10% 15% 10%;
+    background-color: #070B20;
+}
+
+.parent {
+    position: relative;
+    width: 20rem;
+    height: 3rem;
+    margin-top: 5%;
+}
+.form__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #e1e5ee;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: inherit;
+    color: white;
+    outline: none;
+    padding: 1.25rem;
+    background: none;
+   /* Change border when input focus*/
+}
+.form__input:hover {
+    border-color: #adffff;
+}
+.form__input:focus {
+    border-color: #18ffff;
+}
+
+.color-field{
+    margin-top: 5%;
+    padding: .50rem;
+    display: flex;
+    border-radius: 0.5rem;
+    justify-content: space-around;
+    border: 2px solid #e1e5ee;
+}
+
+.color-field label{
+    color: #fff;
+}
+
+.form__label {
+    position: absolute;
+    left: 1rem;
+    top: 0.8rem;
+    padding: 0 0.5rem;
+    color: white;
+    cursor: text;
+    transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+    background-color: #060b23;
+}
+/* 1. When the input is in the focus state reduce the size of the label and move upwards 2. Keep label state when content is in input field */
+.form__input:focus ~ .form__label, .form__input:not(:placeholder-shown).form__input:not(:focus) ~ .form__label {
+    top: -0.5rem;
+    font-size: 0.8rem;
+    left: 0.8rem;
+}
+
+.show{
+    transform: translate(0%, 0%);
+}
+
+.submit{
+    background: none;
+    border: 2px solid #18FFFF;
+    color: #fff;
+    padding: 5px 2rem;
+    font-size: 1.2rem;
+    border-radius: .5rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    cursor: pointer;
+}
+
+.submit:hover{
+    background-color: #18FFFF;
+    transition: all 1s ease;
+    color: #000;
+}
