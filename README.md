@@ -5,8 +5,9 @@ This is a project which contains a flash card and a form you can edit the card u
 ## 🛠 Technologies Used
   - HTML - Hyper Text Markup Language
   - CSS - Cascadeing Spread Sheet
-  - CSS Flex Box
-  - CSS Grid
+  - JS - Java Script
+  - DOM - Document Object Model
+  - Local Storage - A Web API
 
 ## 🚩 Demo In Laptop Screen
 https://user-images.githubusercontent.com/108281031/192481109-dac0c54a-6907-4b28-b8e0-edc80d0aa7c7.mp4
